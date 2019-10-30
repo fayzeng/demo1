@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" /><!--就禁止了把数字转化为拨号链接！-->
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<title>充值</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<style type="text/css">
+			input {-webkit-appearance:none; /*去除input默认样式}*/}
+			body{position: relative;background: #fff;}
+			
+			a:link, a:visited {text-decoration: none;transition: all 0.2s ease;cursor: pointer;color: #666;}
+			ul li{padding: 10px; font-size: 14px;}
+			ul li input{margin-left: 10px;height: 35px; line-height: 35px;padding-left: 10px;font-size: 13px;border: 1px #dadada solid;border-radius: 5px;}
+			.k-v-box .b_item{position: relative;display: inline-block;width: auto;padding: 2px 10px;border: 1px solid #ccc;margin-right: 10px;margin-bottom: 13px;margin-top: 10px;text-align: center;color: #666;line-height: 25px;vertical-align: middle;background: #fff;}
+			li.k-v-box .b_item_selected {border: 1px solid #e2383a;color: #e2383a;}
+			.k-v-box .b_item_selected .icon {position: absolute;bottom: -1px;right: -1px;width: 18px;height: 18px;background: url(img/icon.png) no-repeat;}
+			i{font-style:normal; font-size: 13px; color: blueviolet; vertical-align: middle;}
+			li div img {width: 15px; height: 15px; vertical-align: middle;}
+			li div {display: inline-block;padding-left: 10px;}
+			.k-v-box .b_item_input {border-radius: 5px;height: 33px;}
+			.k-v-box .ued-input1 {height: 28px;font-size: 14px;padding: 0; line-height: 25px;border:none;text-align: center;*text-align: left;color: #DADADA;font-family: "microsoft yahei","宋体",Arial,sans-serif,simsun;}
+			
+			.ued-btn3 {margin-left: 3%;height: 40px;padding: 0 30px;font-size: 16px;}
+			.ued-btn {display: inline-block;*display: inline;*zoom: 1;height: 40px;background: #31adfc;background-color: rgb(49, 173, 252);border: 1px solid #0AA0FF;color: #fff;font-family: 'microsoft yahei';font-size: 14px;line-height: 38px;line-height: 34px\0;*line-height: 34px;text-decoration: none;text-align: center;padding: 0 25px;*padding: 0 20px;cursor: default;vertical-align: middle;box-sizing: border-box;-moz-box-sizing: border-box;outline: 0;}
+			/* .ued-btn {background-color: #0083d3; color: #fff;} */
+			.ued-btn[disabled] {color: #fff !important;background-color: #bdbdbd !important;border-color: #bdbdbd !important;cursor: not-allowed;}
+		</style>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li>
+					<span>卡号:</span>
+					<input type="text" name="recnumber" placeholder="请输入充值卡卡号">
+					<div>
+						<img src="img/about.png"> 
+						<i>如何购买</i>
+					</div>
+					
+				</li>
+				<li>
+					<span>密码:</span>
+					<input type="password" name="recpswd" placeholder="请输入充值卡密码">
+				</li>
+				<li class="k-v-box">
+					<span>充值卡面额:</span>
+					<a class="b_item b_item_selected">
+						<span>5元</span>
+						<b class="icon"></b>
+					</a>
+					<a class="b_item">
+						<span>10元</span>
+						<b class="icon"></b>
+					</a>
+					<a class="b_item">
+						<span>15元</span>
+						<b class="icon"></b>
+					</a>
+					<a class="b_item">
+						<span>30元</span>
+						<b class="icon"></b>
+					</a>
+					<a class="b_item">
+						<span>50元</span>
+						<b class="icon"></b>
+					</a>
+					<a class="b_item">
+						<span>100元</span>
+						<b class="icon"></b>
+					</a>
+					<a class="b_item">
+						<span>500元</span>
+						<b class="icon"></b>
+					</a>
+					<a class="b_item b_item_input">
+						<input type="number" class="ued-input1" maxlength="4" _min="10" _max="5000" placeholder="10-5000整数">
+					</a>
+					
+				</li>
+			</ul>
+			<button class="ued-btn ued-btn3" id="stc-recharge-submit">开始充值</button>
+		</div>
+	</body>
+</html>
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var oPhone = document.getElementById('regPhone');
+		var oVerify = document.getElementById('regVerify');
+	})
+	
+	$('.b_item').click(function(event){
+		$(this).addClass("b_item_selected").siblings().removeClass("b_item_selected")
+	});
+	
+	$("#stc-recharge-submit").click(function() {
+		var recnumberId= $('input[name=recnumber]');// 得到充值卡号输入框
+		var recpswdId= $('input[name=recpswd]');	// 得到密码输入框
+		var textnum  = $.trim(recnumberId.val());   // 得到填写的卡号
+		var textpswd  = $.trim(recpswdId.val());	// 得到填写的密码
+		
+		if(!textnum) {
+			alert('请输入正确的充值卡号');
+			ophonId.focus();
+			return false;
+		}
+		if(!textpswd) {
+			alert('请输入正确的密码');
+			ophonId.focus();
+			return false;
+		}
+	})
+</script>

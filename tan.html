@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" /><!--就禁止了把数字转化为拨号链接！-->
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<style type="text/css">
+			.provider { width: 420px;height: 200px;background: #fff;display: inline-block;}
+			.pro_box {height: 66px; line-height: 66px;}
+			.provider span {display: inline-block; width: 30%; text-align: right;    vertical-align: top; color: #655e68;font-size: 13px;}
+			.pro_next {display: inline-block;margin-left: 20px;}
+			.pro_box2 {position: relative;}
+			.pro_next input[type=text] {width: 100%; height: 36px; border: 1px solid #e8e8e8;padding-left: 10px;}
+			.pro_box2 input[type=file] {opacity: 0; position: absolute; top: 0;}
+			.pro_box2 input[type=submit] {width: 90px; height: 36px;border: 1px solid #1e9fff; background: #1e9fff;color: #fff;}
+			.pro_box2 .btn {width: 90px; height: 36px;border: 1px solid #009789; background: #009789;color: #fff;margin-top: 23px;}
+		</style>
+	</head>
+	<body>
+		<div class="provider">
+			<div class="pro_box">
+				<span>所属服务商</span>
+				<div class="pro_next">
+					<input type="text" list="addr"/>
+					<datalist id="addr">
+						<option value="上海">上海</option>
+						<option value="北京">北京</option>
+						<option value="杭州">杭州</option>
+					</datalist>
+				</div>
+				
+			</div>
+			<div class="pro_box2">
+				<span>代发信息</span>
+				<div class="pro_next">
+					<form action="UploadFile.ashx" method="post" enctype="multipart/form-data">
+						<input type="file" name="fileUpload" />
+						<input type="submit" value="选择文件" />
+					</form>
+					<button type="button" class="btn">立即提交</button>
+				</div>
+				    
+			</div>
+		</div>
+	</body>
+</html>
